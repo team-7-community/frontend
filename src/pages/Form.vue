@@ -21,15 +21,13 @@
               :rules="[val => (val && val.length) || 'O campo é obrigatório.']"
               lazy-rules
             />
+            <label>De 1 a 5 (sendo 1 o menor e 5 o maior), quão heteronormativo você é?</label>
             <q-option-group
-              label="De 1 a 5 (sendo 1 o menor e 5 o maior), quão heteronormativo você é?"
               v-model="form.heteronormativity"
               :options="options.heteronormativity"
               color="primary"
               inline
               dense
-              :rules="[val => (val && val.length) || 'O campo é obrigatório.']"
-              lazy-rules
             />
             <q-select
               label="Qual seu gênero?"
@@ -44,7 +42,7 @@
               color="cyan"
               type="submit"
               :disabled="
-                !form.sexualOrientation || !form.heteronormativity || !form.etnia || !form.genre
+                !form.sexualOrientation || !form.etnia || !form.genre
               "
             />
           </q-form>
@@ -64,7 +62,7 @@ export default {
     },
     options: {
       etnia: [
-        'Branco', 'Negro', 'Pardo', 'Indígena',
+        'Branco', 'Negro', 'Pardo', 'Indígena', 'Prefiro não responder',
       ],
       heteronormativity: [
         {
@@ -89,10 +87,10 @@ export default {
         },
       ],
       sexualOrientation: [
-        'Assexual', 'Heterossexual', 'Homossexual', 'Bissexual/Pansexual',
+        'Assexual', 'Heterossexual', 'Homossexual', 'Bissexual/Pansexual', 'Prefiro não responder',
       ],
       genre: [
-        'Mulher Cis', 'Homem Cis', 'Mulher Trans', 'Homem Trans', 'Não Binário',
+        'Mulher Cis', 'Homem Cis', 'Mulher Trans', 'Homem Trans', 'Não Binário', 'Prefiro não responder',
       ],
     },
     scores: {
@@ -118,7 +116,7 @@ export default {
         etnia, heteronormativity, sexualOrientation, genre,
       } = this.form;
 
-      const lgbtScore = this.scores[heteronormativity * sexualOrientation];
+      const lgbtScore = this.scores[sexualOrientation] * heteronormativity;
 
       const form = {
         score0: this.scores[etnia], // racial
