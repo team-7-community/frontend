@@ -4,7 +4,7 @@
 module.exports = function (ctx) {
   return {
     // app boot file (/src/boot)
-    // --> boot files are part of "main.js"
+    // --> boot files are part of 'main.js'
     // https://quasar.dev/quasar-cli/cli-documentation/boot-files
     boot: [
       'axios'
@@ -33,7 +33,7 @@ module.exports = function (ctx) {
       iconSet: 'material-icons', // Quasar icon set
       lang: 'en-us', // Quasar language pack
 
-      // Possible values for "all":
+      // Possible values for 'all':
       // * 'auto' - Auto-import needed Quasar components & directives
       //            (slightly higher compile time; next to minimum bundle size; most convenient)
       // * false  - Manually specify what to import
@@ -55,7 +55,7 @@ module.exports = function (ctx) {
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
       scopeHoisting: true,
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
       showProgress: true,
       gzip: false,
       analyze: false,
@@ -107,29 +107,40 @@ module.exports = function (ctx) {
         theme_color: '#027be3',
         icons: [
           {
-            'src': 'statics/icons/icon-128x128.png',
-            'sizes': '128x128',
-            'type': 'image/png'
+            src: '\/android-icon-36x36.png',
+            sizes: '36x36',
+            type: 'image\/png',
+            density: '0.75'
           },
           {
-            'src': 'statics/icons/icon-192x192.png',
-            'sizes': '192x192',
-            'type': 'image/png'
+            src: '\/android-icon-48x48.png',
+            sizes: '48x48',
+            type: 'image\/png',
+            density: '1.0'
           },
           {
-            'src': 'statics/icons/icon-256x256.png',
-            'sizes': '256x256',
-            'type': 'image/png'
+            src: '\/android-icon-72x72.png',
+            sizes: '72x72',
+            type: 'image\/png',
+            density: '1.5'
           },
           {
-            'src': 'statics/icons/icon-384x384.png',
-            'sizes': '384x384',
-            'type': 'image/png'
+            src: '\/android-icon-96x96.png',
+            sizes: '96x96',
+            type: 'image\/png',
+            density: '2.0'
           },
           {
-            'src': 'statics/icons/icon-512x512.png',
-            'sizes': '512x512',
-            'type': 'image/png'
+            src: '\/android-icon-144x144.png',
+            sizes: '144x144',
+            type: 'image\/png',
+            density: '3.0'
+          },
+          {
+            src: '\/android-icon-192x192.png',
+            sizes: '192x192',
+            type: 'image\/png',
+            density: '4.0'
           }
         ]
       }
