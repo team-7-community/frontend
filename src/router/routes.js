@@ -5,6 +5,7 @@ const routes = [
     component: () => import('layouts/MyLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Index.vue') },
+      { path: 'search/:id', component: () => import('pages/Form.vue') },
     ],
   },
 ];
